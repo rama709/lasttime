@@ -1,0 +1,44 @@
+The formula for permutations is: nPr = n!/(n-r)! 
+The formula for combinations(select) is:
+nCr = n!/[r! (n-r)!]
+
+nCr=nC(r-1)+ (n-1)C(r-1);
+==========================================
+int fact(int n)
+{
+    int fact=1;
+    if(n<1|| n==1)
+    {
+        return 1;
+    }
+     for(int i=1;i<=n;i++){    
+      fact=fact*i;    
+  }    
+  return fact;
+}
+    int nCr(int n, int r){
+        // code here
+          int m=1e9+7;
+
+        long result=fact(n);
+        long res2=fact(n-r)*fact(r);
+       int result3=(result/res2)%m;
+        return result3;
+    }
+    =============================================
+    optimized
+    ==================================================
+       int nCr(int n, int r){
+        // code here
+        int m=1e9+7;
+   long long result[r+1]={0};
+    result[0]=1;
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=min(i,r);j>0;j--)
+        {
+            result[j]= (result[j]+ result[j-1])%m;
+        }
+    }
+    return result[r];
+    }
