@@ -1,0 +1,26 @@
+array is a collection of elements of same datatype with continuous memory allocation.
+
+ex:-int a[10];
+if you want to access a[11] or memory which is not allocated -- it gives segmentation fault.
+====================================================================================================
+the two-dimensional array can be defined as an array of arrays.
+The 2D array is organized as matrices which can be represented as the collection of rows and columns.
+ex--int twodimen[4][3];  
+-----------------------------------------------
+int n,m;
+cin>>n>>m;
+int a[n][m];
+for(i=0;i<n;++i){    
+ for(j=0;j<m;++j){
+ {
+ cin>>a[i][j];
+ }
+ }
+=================================================================================================================================
+size limits of array
+===================================================================================================================================
+locally size of array is 10 power of 5;// (1e5)
+
+Globally size is 10 to the power of 7 ; //(1e7)
+
+=====================================================================================================================================
