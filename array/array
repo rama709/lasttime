@@ -1,5 +1,5 @@
 array is a collection of elements of same datatype with continuous memory allocation.
-
+array elements can by accessed by using index.
 ex:-int a[10];
 if you want to access a[11] or memory which is not allocated -- it gives segmentation fault.
 ====================================================================================================
@@ -24,3 +24,7 @@ locally size of array is 10 power of 5;// (1e5)
 Globally size is 10 to the power of 7 ; //(1e7)
 
 =====================================================================================================================================
+fill_n(arrayname   ,  size ,  value);// used to fill all the array with single digits. o
+output :- 1 1 1 1 1 1 1 1 1 1 1 
+======================================================================================================================================
+
