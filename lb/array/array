@@ -1,0 +1,46 @@
+if mod any number with (x%n) that ouput will be from ((0)====(n-1))
+=====================================================================================
+Rotate a given array by k times
+==================================
+indexing starts from 0 to n-1;
+to move n-1 value to k(3) then n, n+1,n+2
+i.e (value_index + k)%n=valueat[Value_index];
+in cyclic way "i" value is shifted to k position 
+-------------------------------------------------------
+ void rotate(vector<int>& nums, int k) {
+        vector<int> result(nums.size());
+        for(int i=0;i<nums.size();i++)
+        {
+            result[(i+k)%nums.size()]= nums[i];
+        }
+        nums=result;
+    }
+=======================================================================================
+sorted and roatated
+=================================
+approach-1
+===================================================
+bool check(vector<int>& nums) {
+       int n=nums.size() , count=0;
+    
+        for(int i=1; i<n; i++){
+            /* since in rotated array , at one point the succeding element will be greater than the precceding value , so we are incrementing the count=1
+            */
+            if(nums[i-1]> nums[i] )
+               count++;
+         
+        }
+        /* checking whether the last number is less than the first number if not then it is false */
+         if(nums[n-1]>nums[0]) 
+         {
+              count++;
+         }
+
+            
+        /* if all the elemnts are same then it is sorted and roated */
+        return count<=1; 
+   
+    }
+    ===============================================
+   ADD 2 arrays 
+   ================================================
