@@ -64,3 +64,36 @@ bool isPalindrome(string s) {
         return true;
     }
     =================================
+// no  characters to be added to make it a serach word
+============================================================
+#include <iostream>
+using namespace std;
+
+int solution(string search, string result){
+    int n = search.size();
+    int m = result.size();
+    int i=0, j=0;
+    while(i<n and j<m){
+        if(search[i]==result[j]) j++;
+        i++;
+    }
+    return m-j;
+}
+int main() {
+    string a ="abcz";
+    string b = "azdb";
+    cout<<solution(a, b)<<endl;
+    //n=10^5
+}
+===========================================================================================================================
+reverse the words in the given sentence
+---------------------------------------------------------------
+ex:my name is something
+output:- ym eman si gnihtemos
+===========================================================================================================================
+
+
+
+
+
+
