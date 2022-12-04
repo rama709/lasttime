@@ -91,8 +91,116 @@ reverse the words in the given sentence
 ex:my name is something
 output:- ym eman si gnihtemos
 ===========================================================================================================================
+Maximum Occuring Character
+=============================================================================================================================
+ char getMaxOccuringChar(string str)
+    {
+        int alpha[26]={0};
+        for(int i=0; i<str.size(); i++) {
+            if(str[i]>='A' && str[i]<='Z')
+            {
+                str[i]=str[i]-'A'+'a';
+            }
+            alpha[str[i]-'a']++;
+        }
+        
+        int maxValue=-1, ans=0;
+        for(int i=0; i<26; i++) {
+            if(maxValue<alpha[i])
+            {
+                maxValue=alpha[i], ans=i;
+            }
+        }
+        
+        return ans+'a';
 
+    }
+ =======================================================================================================
+cin execution stops when compiler encounters space(" ") ,tab ("\t"),newline("\n")
+ ===========================================================================================================
+ string replaceSpaces(string &str){
+	// Write your code here.
+    string temp;
+    for(int i=0;i<str.size();i++)
+    {
+        if(str[i]==' ')
+        {
+            temp.push_back('@');
+            temp.push_back('4');
+            temp.push_back('0');
+        }else{
+            temp.push_back(str[i]);
+        }
+    }
+    return temp;
+}
+ =================================================================================================================
+  Remove All Occurrences of a Substring
+ ===============================================================================================================
+     string removeOccurrences(string s, string part) {
+        while(s.size()!=0 && s.find(part) < s.length())
+        {
+            s.erase(s.find(part),part.length());
+        }
+        return s;
+    }
+    ============================================================================================================
+    permutation in a strinr
+    ---------------
+    bool checkEqual(int a[26],int b[26])
+    {
+        for(int i=0;i<26;i++)
+           { //cout<<a[i]<<" "<<b[i];
+            if(a[i]!=b[i])
+                return 0;}
+        return 1;
+    }
 
+    bool checkInclusion(string s1, string s2) {
+        // charcter array counter
+        if(s2.size() < s1.size()) return false;
+        int count1[26]={0};
+        for(int i=0;i< s1.length();i++)
+        {
+            count1[s1[i]-'a']++;
+        }
+        // traverse s2 string in window size s1 length and compare 
+        int i=0;
+        int windowsize=s1.length();
+        int count2[26]={0};
+        // running for first window
+        while(i < windowsize)
+        { 
+            int index=s2[i]-'a';
+            
+            count2[index]++;
+            
+            i++;
+        }
+        if(checkEqual(count1,count2))
+        {
+            return 1;
+        }
+        // processing window front
+    
+         while(i< s2.length())
+         {   
+             char newchar=s2[i];
+
+             count2[newchar-'a']++;
+
+             char oldchar=s2[i-windowsize];
+
+             count2[oldchar-'a']--;
+              if(checkEqual(count1,count2))
+        {
+            return 1;
+        }
+        i++;
+
+         }
+        return 0;
+    }
 
 
 
