@@ -201,7 +201,61 @@ cin execution stops when compiler encounters space(" ") ,tab ("\t"),newline("\n"
          }
         return 0;
     }
+ ===============================================================================================================
+ Keep a res as a characters stack.
+Iterate characters of S one by one.
 
+If the next character is same as the last character in res,
+pop the last character from res.
+In this way, we remove a pair of adjacent duplicates characters.
 
-
-
+If the next character is different,
+we append it to the end of res.
+ ---------------------------------------------------------------------------
+  string removeDuplicates(string s) {
+         if (s.empty())
+            return s;
+        int i = 0, n = s.size();
+        stack<char> st;
+        while (i < n) {
+            if (!st.empty() && s[i] == st.top())
+                st.pop();
+            else
+                st.push(s[i]);
+            i++;
+        }
+        s = "";
+        while (!st.empty()) {
+            s.push_back(st.top());
+            st.pop();
+        }
+        reverse(s.begin(), s.end());
+        return s;
+    }
+ ===============================================================================
+ string compression
+ ---------------------------------------------------------------------------------
+  int compress(vector<char>& chars) {
+          int i=0,ansindex=0;
+          int n=chars.size();
+        while(i<n){  
+           int j=i+1;
+           // i point s to first charcater and j points to the second charcater
+            while(j<chars.size()&&chars[i]==chars[j]){
+                // if the first and second character are equal j is incremeneted
+                j++;
+            }
+                chars[ansindex++]=chars[i];
+                int count=j-i;
+                if(count>1){  
+                    // converting counting into single digit and saving in answer
+                 string temp=to_string(count);
+                    for(char c:temp)chars[ansindex++]=c;
+                    i=j;
+                    continue;
+                } 
+                i=j;
+            } 
+        return ansindex;
+    }
+    -----------------------------------------------------------------------------------------------
